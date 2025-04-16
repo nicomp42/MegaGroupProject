@@ -1,10 +1,14 @@
+# utilities.py
+# Bill Nicholson
+# nicholdw@ucmail.uc.edu
+
 import pkgutil
 import importlib
 import sys
 import os
 import traceback # Optional: for detailed error reporting
 
-def run_modules_in_package(package_name):
+def run_modules_in_package(package_name, verbose = False):
     """
     Finds and imports (runs) all modules directly within the specified package.
 
@@ -19,7 +23,7 @@ def run_modules_in_package(package_name):
         package_path = package.__path__ # __path__ is a list of paths for the package
         package_prefix = package.__name__ + '.' # e.g., 'groupPackage.'
 
-        print(f"Package '{package_name}' found at: {package_path}")
+        if verbose: print(f"Package '{package_name}' found at: {package_path}")
 
     except ImportError:
         print(f"Error: Package '{package_name}' not found.")
@@ -51,10 +55,10 @@ def run_modules_in_package(package_name):
 
         # 3. Import (and thus run) the module
         try:
-            print(f"\nAttempting to run module: {module_name}...")
+            if verbose: print(f"\nAttempting to run module: {module_name}...")
             module_that_was_imported = importlib.import_module(module_name)
             modules_imported.append(module_that_was_imported)
-            print(f"Successfully ran module: {module_name}")
+            if verbose: print(f"Successfully ran module: {module_name}")
             modules_run += 1
         except Exception as e:
             print(f"Error running module {module_name}:")
@@ -62,13 +66,13 @@ def run_modules_in_package(package_name):
             print(f"  Error Type: {type(e).__name__}")
             print(f"  Error Details: {e}")
             modules_failed += 1
-
-    print("\n--- Finished running modules ---")
-    print(f"Summary:")
-    print(f"  Modules found (including subpackages): {modules_found}")
-    print(f"  Modules attempted to run: {modules_run + modules_failed}")
-    print(f"  Modules run successfully: {modules_run}")
-    print(f"  Modules failed to run: {modules_failed}")
+    if verbose:
+        print("\n--- Finished running modules ---")
+        print(f"Summary:")
+        print(f"  Modules found (including subpackages): {modules_found}")
+        print(f"  Modules attempted to run: {modules_run + modules_failed}")
+        print(f"  Modules run successfully: {modules_run}")
+        print(f"  Modules failed to run: {modules_failed}")
 
     return module_names, modules_imported
 

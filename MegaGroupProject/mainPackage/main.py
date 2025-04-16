@@ -1,3 +1,6 @@
+# main.py
+# Bill Nicholson
+# nicholdw@ucmail.uc.edu
 
 from modulefinder import Module
 from utilitiesPackage.utilities import *
@@ -20,4 +23,5 @@ if __name__ == "__main__":
         #        print(attribute)
         function = getattr(module, expected_function)
         if callable(function):
+            print("Executing", expected_function + "()", "in", module.__str__().split("\\\\")[-1][:-2])
             function()
