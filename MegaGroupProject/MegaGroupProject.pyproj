@@ -1,0 +1,55 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d80d7908-c747-4f71-91be-55800e1ab6a0</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>mainPackage\main.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>MegaGroupProject</Name>
+    <RootNamespace>MegaGroupProject</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="groupPackage\test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="groupPackage\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mainPackage\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mainPackage\main.py" />
+    <Compile Include="utilitiesPackage\utilities.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utilitiesPackage\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="groupPackage\" />
+    <Folder Include="mainPackage\" />
+    <Folder Include="utilitiesPackage\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
