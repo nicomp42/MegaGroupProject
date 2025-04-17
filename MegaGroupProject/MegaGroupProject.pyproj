@@ -21,9 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="groupPackage\test.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="groupPackage\__init__.py">
       <SubType>Code</SubType>
     </Compile>
