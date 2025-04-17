@@ -1,4 +1,4 @@
-class GroupProject:
-    def get_favorite_food():
+class GroupCollaboration:
+    def get_favorite_food(self):
         return "Steak"
         
