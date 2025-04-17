@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="groupPackage\farrelcj.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="groupPackage\test.py">
       <SubType>Code</SubType>
     </Compile>
